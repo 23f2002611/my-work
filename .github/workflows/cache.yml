@@ -21,4 +21,9 @@ jobs:
           key: cache-e16ee08
 
       - name: Show cache hit/miss
-        run: echo "Cache result: ${{ steps.cache-step.outputs.cache-hit }}"
+        run: |
+          if [ "${{ steps.cache-step.outputs.cache-hit }}" == "true" ]; then
+            echo "Cache hit"
+          else
+            echo "Cache miss"
+          fi
